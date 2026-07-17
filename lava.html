@@ -1,0 +1,52 @@
+<div class="gallery">
+<img id="slider" src="photo1.jpg">
+</div>
+
+<div class="typewriter">
+<h2>💌 A Special Letter For You 💌</h2>
+<p id="typing"></p>
+</div>
+
+<script>
+const photos=[
+"photo1.jpg",
+"photo2.jpg",
+"photo3.jpg",
+"photo4.jpg",
+"photo5.jpg"
+];
+
+let i=0;
+
+setInterval(()=>{
+i=(i+1)%photos.length;
+document.getElementById("slider").src=photos[i];
+},2500);
+
+const text=`Dear Sadiya ❤️
+
+Happy Birthday Meri Jaan...
+
+Tum meri life ki sabse beautiful smile ho.
+
+Har dua me tumhara naam hota hai.
+
+Main chahta hoon ki tum hamesha khush raho.
+
+Thank you meri life me aane ke liye.
+
+I Love You Forever ❤️
+
+— Aazm`;
+
+let n=0;
+
+function type(){
+if(n<text.length){
+document.getElementById("typing").innerHTML+=text.charAt(n);
+n++;
+setTimeout(type,45);
+}
+}
+type();
+</script>
