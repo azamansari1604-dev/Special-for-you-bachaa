@@ -1,0 +1,79 @@
+<!-- ⭐ Premium Ending -->
+
+<style>
+#countdownBox{
+margin:25px auto;
+padding:20px;
+width:90%;
+max-width:420px;
+background:rgba(255,255,255,.18);
+border-radius:20px;
+backdrop-filter:blur(10px);
+font-size:22px;
+font-weight:bold;
+}
+
+#stars{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+overflow:hidden;
+z-index:-2;
+}
+
+.star{
+position:absolute;
+width:3px;
+height:3px;
+background:white;
+border-radius:50%;
+animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+from{opacity:.2;transform:scale(1);}
+to{opacity:1;transform:scale(2);}
+}
+</style>
+
+<div id="stars"></div>
+
+<div id="countdownBox">
+🎂 Happy Birthday Sadiya ❤️
+<br><br>
+Forever Yours,
+<b>Aazm ❤️</b>
+</div>
+
+<script>
+for(let i=0;i<120;i++){
+const s=document.createElement("div");
+s.className="star";
+s.style.left=Math.random()*100+"vw";
+s.style.top=Math.random()*100+"vh";
+s.style.animationDelay=Math.random()*2+"s";
+document.getElementById("stars").appendChild(s);
+}
+
+const birthday=new Date("August 15, 2026 00:00:00").getTime();
+
+setInterval(()=>{
+let now=new Date().getTime();
+let gap=birthday-now;
+
+if(gap>0){
+
+let d=Math.floor(gap/(1000*60*60*24));
+let h=Math.floor((gap%(1000*60*60*24))/(1000*60*60));
+let m=Math.floor((gap%(1000*60*60))/60000);
+let s=Math.floor((gap%(60000))/1000);
+
+document.getElementById("countdownBox").innerHTML=
+`⏳ ${d} Days ${h} Hours ${m} Minutes ${s} Seconds
+<br><br>
+❤️ Happy Birthday Sadiya ❤️`;
+}
+},1000);
+</script>
